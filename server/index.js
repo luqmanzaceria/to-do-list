@@ -9,7 +9,7 @@ app.use(express.json()) // allows us to access the req.body
 
 //ROUTES//
 
-//get all todos
+//get all tasks
 
 app.get("/todos", async (req, res) => {
     try {
@@ -21,7 +21,7 @@ app.get("/todos", async (req, res) => {
     }
 });
 
-//get a todo
+//get a task
 
 app.get("/todos/:id", async (req, res) => {
     try {
@@ -33,7 +33,7 @@ app.get("/todos/:id", async (req, res) => {
     }
 });
 
-//create a todo
+//create a task
 
 app.post("/todos", async (req,res) => {
     try {
@@ -49,9 +49,22 @@ app.post("/todos", async (req,res) => {
     }
 });
 
-//update a todo
+//update a task
 
-//delete a todo
+app.put("/todos/:id", async(req,res) => {
+    try {
+        const {id} = req.params;
+        const {description} = req.body;
+        const updateTodo = await pool.query("UPDATE todo SET description = $1 WHERE todo_id = $2", [description, id]);
+
+        res.json("Task was updated")
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+
+
+//delete a task
 
 app.listen(5001, () => {
     console.log("Server is starting on port 5001")
