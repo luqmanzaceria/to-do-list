@@ -1,10 +1,14 @@
+import React, { Fragment } from 'react';
+import InputTask from "./components/inputTask"
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <Fragment>
+      <div className="container">
+        <InputTask />
+      </div>
+    </Fragment>
   );
 }
 
