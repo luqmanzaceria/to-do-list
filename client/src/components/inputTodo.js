@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-const InputTask = () => {
+const InputTodo = () => {
   const [description, setDescription] = useState("");
 
   const onSubmitForm = async e => {
@@ -21,7 +21,7 @@ const InputTask = () => {
 
   return (
     <Fragment>
-      <h1 className="text-center mt-5">Pern Todo List</h1>
+      <h1 className="text-center mt-5">To Do List</h1>
       <form className="d-flex mt-5" onSubmit={onSubmitForm}>
         <input
           type="text"
@@ -35,4 +35,4 @@ const InputTask = () => {
   );
 };
 
-export default InputTask;
+export default InputTodo;
